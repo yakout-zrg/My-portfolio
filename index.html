@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yakout Zergoug – AI &amp; Frontend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07040f;--panel:#110a22;--line:#2a1a4d;--text:#ece6ff;--dim:#9b8cc4;--neon:#a855ff;--hot:#ff3df2;--ice:#6ee7ff;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px;height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 Manrope,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Unbounded,Impact,sans-serif;margin:0;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ice);outline-offset:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) 5vw 14px;background:linear-gradient(#07040fe6,#07040f00)}
+nav b{font-family:Unbounded,sans-serif;font-weight:700;letter-spacing:.02em}
+nav b span{color:var(--neon);text-shadow:0 0 12px var(--neon)}
+nav div{display:flex;gap:22px;font-size:15px}
+nav a{text-decoration:none;color:var(--dim);transition:color .2s,text-shadow .2s}
+nav a:hover{color:#fff;text-shadow:0 0 10px var(--neon)}
+#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:0 5vw;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;z-index:2;max-width:760px;pointer-events:none}
+.hero-in a,.hero-in button{pointer-events:auto}
+.hero-in p.hi{color:var(--ice);font-family:ui-monospace,Menlo,monospace;font-size:15px;margin:0 0 14px}
+h1{font-size:clamp(2.4rem,7.5vw,5.6rem);font-weight:700;text-shadow:0 0 30px #a855ff66}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-t);position:absolute;inset:0;opacity:0}
+.glitch.on::before{opacity:.9;color:var(--hot);transform:translate(-3px,1px);clip-path:inset(10% 0 55% 0)}
+.glitch.on::after{opacity:.9;color:var(--ice);transform:translate(3px,-1px);clip-path:inset(55% 0 10% 0)}
+.role{font-size:clamp(1.1rem,2.4vw,1.5rem);margin:20px 0 6px;min-height:1.6em;color:var(--text)}
+.role i{display:inline-block;width:.6ch;height:1.1em;background:var(--neon);vertical-align:-.15em;margin-left:3px;box-shadow:0 0 10px var(--neon);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.sub{color:var(--dim);max-width:52ch;margin:0 0 30px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid var(--neon);transition:transform .15s,box-shadow .25s,background .25s}
+.btn.fill{background:var(--neon);color:#10001f;box-shadow:0 0 24px #a855ff88}
+.btn.fill:hover{box-shadow:0 0 44px #a855ffcc;transform:translateY(-2px)}
+.btn.ghost{color:var(--text)}
+.btn.ghost:hover{background:#a855ff22;box-shadow:0 0 24px #a855ff55}
+.hint{position:absolute;right:5vw;bottom:24px;z-index:2;color:var(--dim);font-size:13px;font-family:ui-monospace,Menlo,monospace}
+section.s{padding:110px 5vw;max-width:1180px;margin:0 auto}
+h2{font-size:clamp(1.7rem,4vw,2.8rem);margin-bottom:34px}
+.term{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 0 50px #a855ff22}
+.term .bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:#3a2766}
+.term pre{margin:0;padding:22px;font:14.5px/1.8 ui-monospace,Menlo,monospace;white-space:pre-wrap;color:var(--dim)}
+.term pre b{color:var(--ice);font-weight:500}.term pre em{color:var(--hot);font-style:normal}.term pre u{color:var(--text);text-decoration:none}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{padding:10px 18px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-weight:500;transition:.2s}
+.chip:hover{border-color:var(--neon);box-shadow:0 0 22px #a855ff66;color:#fff;transform:translateY(-3px)}
+.chip.ai{border-color:#6a35c2}
+.grp{color:var(--dim);margin:26px 0 12px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;perspective:900px}
+.card{position:relative;border:1px solid var(--line);border-radius:18px;padding:30px 26px;background:linear-gradient(160deg,#1a0f33,#0d0719);transform-style:preserve-3d;transition:transform .12s,border-color .3s;overflow:hidden;min-height:250px}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),#a855ff40,transparent 70%);opacity:0;transition:opacity .3s}
+.card:hover{border-color:var(--neon)}.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card h3{font-size:1.25rem;margin-bottom:12px}
+.card p{color:var(--dim);margin:0 0 18px;font-size:15.5px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;font:12.5px ui-monospace,Menlo,monospace;color:var(--ice)}
+.tags span{padding:3px 10px;border:1px solid #2b4f66;border-radius:6px}
+.contact{text-align:center;padding-bottom:140px}
+.contact h2{font-size:clamp(2rem,6vw,4.2rem);text-shadow:0 0 30px #a855ff66}
+.contact p{color:var(--dim);margin:0 auto 32px;max-width:46ch}
+.links{display:flex;gap:22px;justify-content:center;margin-top:34px;color:var(--dim)}
+.links a:hover{color:#fff;text-shadow:0 0 10px var(--neon)}
+#cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid var(--neon);border-radius:50%;pointer-events:none;z-index:50;box-shadow:0 0 16px var(--neon),inset 0 0 10px #a855ff55;transition:width .2s,height .2s,margin .2s}
+#cur.big{width:60px;height:60px;margin:-30px 0 0 -30px}
+@media(hover:none){#cur{display:none}}
+@media(max-width:620px){nav div{gap:14px;font-size:14px}.hint{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<nav><b>Yakout<span>_</span>dev</b><div><a href="#about">About</a><a href="#stack">Stack</a><a href="#work">Work</a><a href="#contact">Contact</a></div></nav>
+
+<header id="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="hi">&gt; hello, world. i’m</p>
+    <h1><span class="glitch" id="gl" data-t="Your Name">Yakout Zergoug</span></h1>
+    <div class="role" id="role" aria-live="polite"></div>
+    <p class="sub">CS student specialising in AI. I build web and mobile interfaces that feel alive, and wire intelligence into them.</p>
+    <div class="btns"><a class="btn fill" href="#work">See my work</a><a class="btn ghost" href="#contact">Let’s talk</a></div>
+  </div>
+  <span class="hint">move your mouse · click to pulse the network</span>
+</header>
+
+<section class="s" id="about">
+  <h2>Who’s behind the screen</h2>
+  <div class="term"><div class="bar"><i></i><i></i><i></i></div>
+<pre><b>$</b> <u>whoami</u>
+Yakout Zergoug, CS student (AI track), frontend dev
+<b>$</b> <u>cat focus.txt</u>
+interfaces that move, models that help, code that ships
+<b>$</b> <u>cat now.txt</u>
+learning <em>LLM apps</em>, building with <em>React &amp; Flutter</em>, chasing smoother animations
+<b>$</b> <u>status</u>
+open to internships, freelance and cool side projects</pre></div>
+</section>
+
+<section class="s" id="stack">
+  <h2>My toolkit</h2>
+  <p class="grp">Frontend / Mobile</p>
+  <div class="chips"><span class="chip">HTML &amp; CSS</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Tailwind</span><span class="chip">Flutter</span><span class="chip">React Native</span><span class="chip">Three.js</span></div>
+  <p class="grp">AI</p>
+  <div class="chips"><span class="chip ai">Python</span><span class="chip ai">PyTorch</span><span class="chip ai">TensorFlow</span><span class="chip ai">scikit-learn</span><span class="chip ai">OpenCV</span><span class="chip ai">LLM APIs</span></div>
+</section>
+
+<section class="s" id="work">
+  <h2>Selected projects</h2>
+  <div class="grid">
+    <article class="card"><h3>Project one</h3><p>Replace this with a short line: what it does and why you built it.</p><div class="tags"><span>React</span><span>Python</span></div></article>
+    <article class="card"><h3>Project two</h3><p>Replace this with a short line: what it does and why you built it.</p><div class="tags"><span>Flutter</span><span>Firebase</span></div></article>
+    <article class="card"><h3>Project three</h3><p>Replace this with a short line: what it does and why you built it.</p><div class="tags"><span>PyTorch</span><span>Next.js</span></div></article>
+  </div>
+</section>
+
+<section class="s contact" id="contact">
+  <h2>Got an idea? Let’s build it.</h2>
+  <p>Internship, freelance gig, or a weird experiment: my inbox is open.</p>
+  <a class="btn fill" href="mailto:y.zergoug@esi-sba.dz">y.zergoug@esi-sba.dz</a>
+  <div class="links"><a href="https://github.com/yakout-zrg">GitHub</a><a href="https://www.linkedin.com/in/yakout-zergoug/">LinkedIn</a><a href="https://www.instagram.com/yakout.zrg/">Instagram</a></div>
+</section>
+
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* typing role */
+var roles=['AI Engineer in the making','Frontend Developer','Web & App Builder'],ri=0,ci=0,del=false,el=document.getElementById('role');
+function type(){var w=roles[ri];el.innerHTML=w.slice(0,ci)+'<i></i>';
+ if(reduce){el.innerHTML=roles[0];return}
+ if(!del&&ci<w.length){ci++;setTimeout(type,70)}else if(!del){del=true;setTimeout(type,1500)}else if(ci>0){ci--;setTimeout(type,35)}else{del=false;ri=(ri+1)%roles.length;setTimeout(type,300)}}
+type();
+/* glitch burst */
+var gl=document.getElementById('gl');
+function burst(){gl.classList.add('on');setTimeout(function(){gl.classList.remove('on')},180);setTimeout(burst,2500+Math.random()*3000)}
+if(!reduce)setTimeout(burst,900);
+/* cursor */
+var cur=document.getElementById('cur'),cx=0,cy=0,tx=0,ty=0;
+addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY});
+(function f(){cx+=(tx-cx)*.22;cy+=(ty-cy)*.22;cur.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(f)})();
+document.querySelectorAll('a,.chip,.card').forEach(function(n){n.addEventListener('pointerenter',function(){cur.classList.add('big')});n.addEventListener('pointerleave',function(){cur.classList.remove('big')})});
+/* card tilt */
+document.querySelectorAll('.card').forEach(function(c){
+ c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+  c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
+  if(!reduce)c.style.transform='rotateY('+(x-.5)*14+'deg) rotateX('+(.5-y)*14+'deg) translateZ(8px)'});
+ c.addEventListener('pointerleave',function(){c.style.transform=''})});
+/* 3D neural sphere */
+var cv=document.getElementById('net'),g=cv.getContext('2d'),W,H,DPR=Math.min(devicePixelRatio||1,1.5);
+var N=110,pts=[],dust=[],mx=0,my=0,rx=0,ry=0,pulse=0,R;
+function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;g.setTransform(DPR,0,0,DPR,0,0);R=Math.min(W,H)*(W<700?.34:.4)}
+size();addEventListener('resize',size);
+for(var i=0;i<N;i++){var k=i+.5,ph=Math.acos(1-2*k/N),th=Math.PI*(1+Math.sqrt(5))*k;pts.push({x:Math.cos(th)*Math.sin(ph),y:Math.sin(th)*Math.sin(ph),z:Math.cos(ph)})}
+for(i=0;i<140;i++)dust.push({x:Math.random()*2-1,y:Math.random()*2-1,z:Math.random()*2-1});
+addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+cv.parentNode.addEventListener('pointerdown',function(){pulse=1});
+var t=0,pr=[];
+var vis=true;new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(cv);
+function frame(){if(!vis){requestAnimationFrame(frame);return}
+ t+=reduce?0:.004;rx+=((my*1.2)-rx)*.04;ry+=((mx*2)-ry)*.04;
+ g.clearRect(0,0,W,H);
+ var cxn=W<700?W*.5:W*.68,cyn=H*(W<700?.3:.5),a=t+ry,b=rx,ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b);
+ var sc=R*(1+pulse*.12*Math.sin(pulse*9));
+ function proj(p,s){var x=p.x*ca-p.z*sa,z=p.x*sa+p.z*ca,y=p.y*cb-z*sb;z=p.y*sb+z*cb;var f=1/(1.8-z*.6);return{x:cxn+x*s*f,y:cyn+y*s*f,z:z,f:f}}
+ g.globalCompositeOperation='lighter';
+ for(i=0;i<dust.length;i++){var d=proj(dust[i],R*2.2);g.fillStyle='rgba(168,85,255,'+(.15+d.f*.12)+')';g.fillRect(d.x,d.y,1.4,1.4)}
+ pr.length=0;for(i=0;i<N;i++)pr.push(proj(pts[i],sc));
+ g.lineWidth=1;
+ for(i=0;i<N;i++){var p=pr[i];for(var j=i+1;j<N;j++){var q=pr[j],dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,dz=pts[i].z-pts[j].z,dd=dx*dx+dy*dy+dz*dz;
+  if(dd<.28){var al=(1-dd/.28)*.5*(.4+(p.z+q.z+2)/4);g.strokeStyle='rgba('+(pulse>0?255:168)+','+(pulse>0?61:85)+','+(pulse>0?242:255)+','+al+')';g.beginPath();g.moveTo(p.x,p.y);g.lineTo(q.x,q.y);g.stroke()}}}
+ for(i=0;i<N;i++){p=pr[i];var r=1.2+p.f*2.2,hot=(i%11===0);g.fillStyle=hot?'rgba(110,231,255,.95)':'rgba(214,170,255,.9)';g.beginPath();g.arc(p.x,p.y,r,0,6.283);g.fill();g.globalAlpha=.13;g.beginPath();g.arc(p.x,p.y,r*3.2,0,6.283);g.fill();g.globalAlpha=1}
+ g.shadowBlur=0;g.globalCompositeOperation='source-over';
+ if(pulse>0)pulse=Math.max(0,pulse-.015);
+ requestAnimationFrame(frame)}
+frame();
+})();
+</script>
+</body>
+</html>
